@@ -1,0 +1,38 @@
+﻿@model LoginVm
+
+@{
+    Layout = "~/Views/Shared/_loginLayout.cshtml";
+}
+<style>
+    input {
+        border: 3px solid white ;
+        padding: 10px; 
+        width: 300px
+    }
+
+ 
+</style>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Login" class="signin-form">
+
+            <div class="forms-gds">
+                <div>
+                    <input type="text" asp-for="Username" style="border-radius:5px; width:290px;" placeholder="Kullanıcı Adı" required />
+                </div>
+
+                <div class="form-input">
+
+                    <input type="password" asp-for="Password" placeholder="Şifre" style=" width:290px; border-radius:5px; " required />
+                </div>
+                <div class="form-input">
+                    <input type="submit" value="Giriş Yap" class="btn btn-info" style="background-color:orchid; color:white; border:3px; padding: 13px; border-radius:5px;  width: 150px " />
+                </div>
+            </div>
+            <h6 class="already"> Hesabınız yok mu? <a target="_blank" href="/User/Register/"><span>Kaydol<span></span></span></a></h6>
+        </form>
+    </div>
+</div>
+

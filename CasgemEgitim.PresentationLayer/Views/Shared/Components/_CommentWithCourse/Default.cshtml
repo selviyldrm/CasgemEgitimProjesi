@@ -1,0 +1,71 @@
+﻿@model List<CasgemEgitim.EntityLayer.Concrete.Comment>
+
+
+
+<br />
+<div class="row">
+    
+
+    <div class="col-lg-2"> </div>
+    <div class="col-lg-8">
+        <h3>Yorumlar</h3>
+        <br />
+
+
+
+        @if (Model.Count == 0)
+        {
+            <br />
+            <div class="alert alert-danger ml-3 mr-3" role="alert">
+                Bu kursa henüz yorum yapılmadı
+            </div>
+        }
+        else
+        {
+            <table class="table table-striped">
+
+
+                @foreach (var i in Model)
+                {
+
+                    <tr>
+
+
+
+                        <th style="width:100px">
+                            <img width="50" height="50" src="https://img.icons8.com/ios/100/chat-message--v1.png" alt="chat-message--v1" />
+                        </th>
+                        <th>
+                            @i.Student.StudentName
+                            <span>
+                                - @i.Student.StudentSurname.Substring(0,2)
+                            </span>
+                            @for (int j = 0; j < i.Student.StudentSurname.Length-2; j++)
+                            {
+                                <span>*</span>
+                            }
+                            <br>
+                            <span style="color:gray">
+                                @i.CommentMessage
+                            </span>
+                         </th>
+                        <td style="text-align:end">
+                            <span style="color:#808080">
+
+                            @i.CommentDate.ToShortDateString()
+                            </span>
+                        </td>
+                    </tr>
+
+                }
+
+            </table>
+
+        }
+    </div>
+
+    <div class="col-lg-2"></div>
+</div>
+
+
+
